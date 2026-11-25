@@ -1,0 +1,17 @@
+<clickhouse>
+    <users>
+        <aggregation>
+            <password from_env="AGGREGATION_CLICKHOUSE_PASSWORD"/>
+            <networks>
+                <ip>::/0</ip>
+            </networks>
+            <profile>default</profile>
+            <quota>default</quota>
+            <grants>
+                <query>GRANT SELECT ON cinema.movie_events</query>
+                <query>GRANT SELECT, INSERT, ALTER DELETE ON analytics.daily_metrics</query>
+                <query>GRANT SELECT, INSERT, TRUNCATE ON analytics.daily_metrics_stage</query>
+            </grants>
+        </aggregation>
+    </users>
+</clickhouse>

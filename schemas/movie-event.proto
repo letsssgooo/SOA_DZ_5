@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package cinema.events.v1;
+
+message MovieEvent {
+  enum EventType {
+    VIEW_STARTED = 0;
+    VIEW_FINISHED = 1;
+    VIEW_PAUSED = 2;
+    VIEW_RESUMED = 3;
+    LIKED = 4;
+    SEARCHED = 5;
+  }
+
+  enum DeviceType {
+    MOBILE = 0;
+    DESKTOP = 1;
+    TV = 2;
+    TABLET = 3;
+  }
+
+  optional string event_id = 1;
+  optional string user_id = 2;
+  optional string movie_id = 3;
+  optional EventType event_type = 4;
+  optional int64 timestamp = 5;
+  optional DeviceType device_type = 6;
+  optional string session_id = 7;
+  optional int32 progress_seconds = 8;
+}
